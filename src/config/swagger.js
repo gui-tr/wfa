@@ -5,7 +5,7 @@
     const swaggerDocument = YAML.load(path.join(__dirname, '..', '..', 'openapi.yml'));
 
     const setupSwagger = (app) => {
-    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     };
 
     module.exports = setupSwagger;
