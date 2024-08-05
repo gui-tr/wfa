@@ -1,0 +1,30 @@
+components:
+  schemas:
+    Review:
+      type: object
+      required:
+        - userId
+        - workspaceId
+        - rating
+        - comment
+      properties:
+        userId:
+          type: string
+          description: The ID of the user who left the review
+        workspaceId:
+          type: string
+          description: The ID of the workspace being reviewed
+        rating:
+          type: number
+          description: The rating given by the user (typically on a scale of 1 to 5)
+        comment:
+          type: string
+          description: The comment left by the user
+        createdAt:
+          type: string
+          format: date-time
+          description: The date and time when the review was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: The date and time when the review was last updated

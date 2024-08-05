@@ -1,5 +1,5 @@
 # Use the official Node.js image from the Docker Hub
-FROM node:18
+FROM node:18.16.0
 
 # Create and set the working directory
 WORKDIR /app
@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the package.json and package-lock.json files to the working directory
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies, including dev dependencies
 RUN npm install
 
 # Copy the rest of the application code to the working directory

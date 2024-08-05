@@ -1,0 +1,37 @@
+components:
+  requestBodies:
+    CreateUser:
+      description: Request body for creating a new user
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+    CreateWorkspace:
+      description: Request body for creating a new workspace
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Workspace'
+    CreateBooking:
+      description: Request body for creating a new booking
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Booking'
+    CreatePayment:
+      description: Request body for processing a new payment
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Payment'
+    CreateReview:
+      description: Request body for creating a new review
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Review'

@@ -1,0 +1,65 @@
+components:
+  schemas:
+    Workspace:
+      type: object
+      required:
+        - name
+        - address
+        - details
+        - cost
+      properties:
+        name:
+          type: string
+          description: The name of the workspace
+        address:
+          type: object
+          description: The address of the workspace
+          properties:
+            firstLine:
+              type: string
+              description: The first line of the address
+            secondLine:
+              type: string
+              description: The second line of the address
+            postcode:
+              type: string
+              description: The postal code
+            city:
+              type: string
+              description: The city where the workspace is located
+            country:
+              type: string
+              description: The country where the workspace is located
+        details:
+          type: object
+          description: Additional details about the workspace
+          properties:
+            email:
+              type: string
+              description: Contact email for the workspace
+            number:
+              type: string
+              description: Contact phone number for the workspace
+        cost:
+          type: number
+          description: The cost to book the workspace
+        amenities:
+          type: array
+          description: A list of amenities available at the workspace
+          items:
+            type: string
+        reviews:
+          type: array
+          description: A list of reviews for the workspace
+          items:
+            type: object
+            properties:
+              user:
+                type: string
+                description: The user who left the review
+              rating:
+                type: number
+                description: The rating given by the user
+              comment:
+                type: string
+                description: The comment left by the user

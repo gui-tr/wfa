@@ -1,0 +1,30 @@
+paths:
+  /payments:
+    post:
+      summary: Process a payment
+      requestBody:
+        description: Payment object that needs to be processed
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '201':
+          description: Payment processed
+  /payments/{id}:
+    get:
+      summary: Get a payment by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payment details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'

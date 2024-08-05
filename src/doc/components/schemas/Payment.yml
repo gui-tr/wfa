@@ -1,0 +1,41 @@
+components:
+  schemas:
+    Payment:
+      type: object
+      required:
+        - id
+        - bookingId
+        - amount
+        - currency
+        - status
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the payment
+        bookingId:
+          type: string
+          description: The ID of the associated booking
+        amount:
+          type: number
+          format: float
+          description: The amount paid
+        currency:
+          type: string
+          description: The currency in which the payment was made
+        status:
+          type: string
+          description: The status of the payment (e.g., pending, completed, failed)
+        paymentMethod:
+          type: string
+          description: The method used for payment (e.g., credit card, PayPal)
+        transactionId:
+          type: string
+          description: The transaction ID provided by the payment gateway
+        createdAt:
+          type: string
+          format: date-time
+          description: The date and time when the payment was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: The date and time when the payment was last updated

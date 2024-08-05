@@ -1,11 +1,19 @@
-    const swaggerUi = require('swagger-ui-express');
-    const YAML = require('yamljs');
-    const path = require('path');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+const path = require('path');
 
-    const swaggerDocument = YAML.load(path.join(__dirname, '..', '..', 'openapi.yml'));
+// Load the OpenAPI document
+let swaggerDocument;
+try {
+  swaggerDocument = YAML.load(path.join(__dirname, '..', 'doc', 'openapi.yml'));
+} catch (error) {
+  console.error('Error loading Swagger document:', error);
+  process.exit(1); // Exit the application if the Swagger document cannot be loaded
+}
 
-    const setupSwagger = (app) => {
-    app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-    };
+// Function to setup Swagger UI
+const setupSwagger = (app) => {
+  app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+};
 
-    module.exports = setupSwagger;
+module.exports = setupSwagger;

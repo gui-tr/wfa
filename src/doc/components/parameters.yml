@@ -1,0 +1,37 @@
+components:
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: Unique identifier for the resource
+      schema:
+        type: string
+    UserIdParam:
+      name: userId
+      in: path
+      required: true
+      description: Unique identifier for the user
+      schema:
+        type: string
+    WorkspaceIdParam:
+      name: workspaceId
+      in: path
+      required: true
+      description: Unique identifier for the workspace
+      schema:
+        type: string
+    BookingIdParam:
+      name: bookingId
+      in: path
+      required: true
+      description: Unique identifier for the booking
+      schema:
+        type: string
+    PaymentIdParam:
+      name: paymentId
+      in: path
+      required: true
+      description: Unique identifier for the payment
+      schema:
+        type: string

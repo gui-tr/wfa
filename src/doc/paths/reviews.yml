@@ -1,0 +1,55 @@
+paths:
+  /workspaces/{workspaceId}/reviews:
+    get:
+      summary: Get all reviews for a workspace
+      parameters:
+        - $ref: '#/components/parameters/WorkspaceIdParam'
+      responses:
+        '200':
+          description: A list of reviews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+    post:
+      summary: Add a new review for a workspace
+      parameters:
+        - $ref: '#/components/parameters/WorkspaceIdParam'
+      requestBody:
+        $ref: '#/components/requestBodies/CreateReview'
+      responses:
+        '201':
+          description: Review added
+  /workspaces/{workspaceId}/reviews/{reviewId}:
+    get:
+      summary: Get a review by ID
+      parameters:
+        - $ref: '#/components/parameters/WorkspaceIdParam'
+        - $ref: '#/components/parameters/ReviewIdParam'
+      responses:
+        '200':
+          description: Review details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+    put:
+      summary: Update a review by ID
+      parameters:
+        - $ref: '#/components/parameters/WorkspaceIdParam'
+        - $ref: '#/components/parameters/ReviewIdParam'
+      requestBody:
+        $ref: '#/components/requestBodies/CreateReview'
+      responses:
+        '200':
+          description: Review updated
+    delete:
+      summary: Delete a review by ID
+      parameters:
+        - $ref: '#/components/parameters/WorkspaceIdParam'
+        - $ref: '#/components/parameters/ReviewIdParam'
+      responses:
+        '204':
+          description: Review deleted

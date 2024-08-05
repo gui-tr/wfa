@@ -1,30 +1,27 @@
-const express = require('express');
-const workspaceRepository = require('../repository/workspaceRepository');
+const workspaceRepository = require('../repositories/workspaceRepository');
 
-const router = express.Router();
-
-router.route('/')
-  .get(async (req, res) => {
+class WorkspaceApi {
+  async getAllWorkspaces(req, res) {
     try {
-      const workspaces = await workspaceRepository.findAll();
+      const workspaces = await workspaceRepository.getAllWorkspaces();
       res.status(200).send(workspaces);
     } catch (error) {
       res.status(500).send(error);
     }
-  })
-  .post(async (req, res) => {
+  }
+
+  async createWorkspace(req, res) {
     try {
-      const workspace = await workspaceRepository.create(req.body);
+      const workspace = await workspaceRepository.createWorkspace(req.body);
       res.status(201).send(workspace);
     } catch (error) {
       res.status(400).send(error);
     }
-  });
+  }
 
-router.route('/:id')
-  .get(async (req, res) => {
+  async getWorkspaceById(req, res) {
     try {
-      const workspace = await workspaceRepository.findById(req.params.id);
+      const workspace = await workspaceRepository.getWorkspaceById(req.params.id);
       if (!workspace) {
         return res.status(404).send('Workspace not found');
       }
@@ -32,10 +29,11 @@ router.route('/:id')
     } catch (error) {
       res.status(500).send(error);
     }
-  })
-  .put(async (req, res) => {
+  }
+
+  async updateWorkspace(req, res) {
     try {
-      const workspace = await workspaceRepository.updateById(req.params.id, req.body);
+      const workspace = await workspaceRepository.updateWorkspace(req.params.id, req.body);
       if (!workspace) {
         return res.status(404).send('Workspace not found');
       }
@@ -43,10 +41,11 @@ router.route('/:id')
     } catch (error) {
       res.status(400).send(error);
     }
-  })
-  .delete(async (req, res) => {
+  }
+
+  async deleteWorkspace(req, res) {
     try {
-      const workspace = await workspaceRepository.deleteById(req.params.id);
+      const workspace = await workspaceRepository.deleteWorkspace(req.params.id);
       if (!workspace) {
         return res.status(404).send('Workspace not found');
       }
@@ -54,6 +53,7 @@ router.route('/:id')
     } catch (error) {
       res.status(500).send(error);
     }
-  });
+  }
+}
 
-module.exports = router;
+module.exports = new WorkspaceApi();

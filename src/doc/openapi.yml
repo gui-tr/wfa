@@ -1,0 +1,24 @@
+openapi: 3.0.0
+info:
+  title: Co-working Spaces Booking API
+  version: 1.0.0
+  description: API for managing co-working spaces, bookings, users, payments, and reviews
+paths:
+  $ref: './paths/workspaces.yml'
+  $ref: './paths/users.yml'
+  $ref: './paths/bookings.yml'
+  $ref: './paths/payments.yml'
+  $ref: './paths/reviews.yml'
+components:
+  schemas:
+    $ref: './components/schemas/Workspace.yml'
+    $ref: './components/schemas/User.yml'
+    $ref: './components/schemas/Booking.yml'
+    $ref: './components/schemas/Payment.yml'
+    $ref: './components/schemas/Review.yml'
+  parameters:
+    $ref: './components/parameters.yml'
+  responses:
+    $ref: './components/responses.yml'
+  requestBodies:
+    $ref: './components/requestBodies.yml'
