@@ -16,8 +16,8 @@ COPY . .
 # Install nodemon globally
 RUN npm install -g nodemon
 
-# Expose port 3000 to the outside world
-EXPOSE 3000
+# Expose port 5000 to the outside world
+EXPOSE 5000
 
 # Command to run the application with nodemon
 CMD ["nodemon", "src/server.js"]

@@ -1,6 +1,6 @@
 const express = require('express');
 const jobRepository = require('../repository/jobRepository');
-const swaggerJSDoc = require('swagger-jsdoc');
+// const swaggerJSDoc = require('swagger-jsdoc');
 
 const router = express.Router();
 

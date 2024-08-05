@@ -8,7 +8,7 @@ const setupRoutes = require('./config/routes');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Debugging: Check if connectDB is defined
 console.log(connectDB); // Should log [Function: connectDB]
