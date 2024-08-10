@@ -6,6 +6,7 @@ components:
         - id
         - name
         - email
+        - password
       properties:
         id:
           type: string
@@ -17,6 +18,10 @@ components:
           type: string
           format: email
           description: The user's email address
+        password:
+          type: string
+          description: The user's password (hashed)
+          format: password
         profilePicture:
           type: string
           format: uri
